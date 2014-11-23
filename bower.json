@@ -1,0 +1,30 @@
+{
+  "name": "component-source-listing",
+  "version": "0.0.0",
+  "homepage": "https://github.com/viewbook/component-album-organizer",
+  "authors": [
+    "bas@viewbook.com"
+  ],
+  "description": "Album Origanizer Component for Viewbook Manager",
+  "main": "dist/store.js",
+  "keywords": [
+    "Source",
+    "Listing",
+    "Component",
+    "Viewbook"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.11.2",
+    "viewbook-core-js-lib": "git@github.com:viewbook/library-javascript-core.git#0.0.12",
+    "component-manager-core": "git@github.com:viewbook/component-manager-core.git"
+  }
+}
