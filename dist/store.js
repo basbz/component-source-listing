@@ -19,7 +19,13 @@ define([
     $sourceListsContainer.append($divider);
 
     albumListing = AlbumListing.mount($album_listing[0]);
-    ListDivider.mount($divider[0]);
+    ListDivider.mount($divider[0], function () {
+      var area = $sourceListsContainer.offset();
+
+      area.height = $sourceListsContainer.height();
+
+      return area;
+    });
     AlbumStore.fetchIndex();
   }
 
