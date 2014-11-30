@@ -1,11 +1,13 @@
 define([
   'react',
-  'source-listing/draggable'
-], function (React, Draggable) {
+  'vb-core/nodash',
+  'source-listing/draggable',
+  'source-listing/actions'
+], function (React, __, Draggable, Actions) {
   var Divider = React.createClass({
     render: function () {
       return (
-        <div style={{top: this.props.pos + '%'}} onMouseDown={this.props.onMouseDown} className='source_list_divider'>
+        <div style={{top: this.props.division + '%'}} onMouseDown={this.props.onMouseDown} className='source_list_divider'>
           <img src='modules/left/images/splitter.png' unselectable='on'/>
         </div>
       );
@@ -14,32 +16,31 @@ define([
 
   return {
     mount: function (el, getArea) {
-      var props, draggable, area;
+      var _props, draggable, _area;
 
-      props = {
-        pos: 50,
-
+      _props = {
         drag: {
           onStart: function () {
-            area = getArea();
+            _area = getArea();
           },
 
           onDrag: function (e) {
-            props.pos = ((e.clientY - area.top) / area.height) * 100;
-            render();
+            Actions.divideListing(((e.clientY - _area.top) / _area.height) * 100);
           }
         }
       };
 
 
-      draggable = Draggable(props.drag);
-      props.onMouseDown = draggable.onMouseDown;
+      draggable = Draggable(_props.drag);
+      _props.onMouseDown = draggable.onMouseDown;
 
-      function render () {
-        return React.renderComponent(Divider(props), el);
+      function render (props) {
+        return React.renderComponent(Divider(__.extend(_props, props)), el);
       }
 
-      return render();
+      return {
+        render: render
+      };
     }
   };
 });

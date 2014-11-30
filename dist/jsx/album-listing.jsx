@@ -55,7 +55,7 @@ define(['react'], function (React) {
       }
 
       return (
-        <div className="source_list upper-halve">
+        <div style={{bottom: (100 - this.props.division) + '%'}} className="source_list upper-halve">
           <SourceListHeader name="ALBUMS"/>
           <ul className="source_list_content">
            {content}

@@ -56,7 +56,7 @@ define(['react'], function (React) {
       }
 
       return (
-        React.DOM.div({className: "source_list upper-halve"}, 
+        React.DOM.div({style: {bottom: (100 - this.props.division) + '%'}, className: "source_list upper-halve"}, 
           SourceListHeader({name: "ALBUMS"}), 
           React.DOM.ul({className: "source_list_content"}, 
            content
